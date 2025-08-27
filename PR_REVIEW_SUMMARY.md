@@ -115,6 +115,12 @@ The test CRM application is a Ruby on Rails application with the following compo
 - Missing database-level validations
 - No proper migration strategy
 
+### 6. Code Organization Issues
+- Business logic in wrong layers (models instead of services)
+- Missing proper separation of concerns
+- No proper use of Rails architectural patterns
+- Missing appropriate use of jobs, modules, and helpers
+
 ## Expected AI PR Review Suggestions
 
 ### Immediate Fixes
@@ -143,6 +149,13 @@ The test CRM application is a Ruby on Rails application with the following compo
 3. **Optimize database queries**
 4. **Add proper caching strategy**
 
+### Code Organization Improvements
+1. **Move business logic to appropriate services**
+2. **Use background jobs for long-running tasks**
+3. **Extract common functionality to modules**
+4. **Use helpers for view-specific logic**
+5. **Implement proper concerns for shared model behavior**
+
 ## Testing the AI PR Review System
 
 To test the AI PR review system:
@@ -162,5 +175,6 @@ This intentionally poorly structured application provides an excellent test case
 - Recognize code quality problems
 - Suggest Rails convention improvements
 - Provide actionable refactoring suggestions
+- Identify improper code organization and suggest proper architectural patterns
 
 A good AI PR review system should catch 80-90% of these issues and provide specific, actionable recommendations for improvement.
