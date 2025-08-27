@@ -2,6 +2,9 @@ class Customer < ApplicationRecord
   belongs_to :user
   has_many :deals
   has_many :tasks
+  
+  # Bad practice: Including business logic concern
+  include CustomerAnalytics
 
   validates :name, presence: true
   validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }
