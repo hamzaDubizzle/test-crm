@@ -62,6 +62,16 @@ This application is designed to demonstrate various anti-patterns and poor codin
    rails server
    ```
 
+## GitHub Copilot Integration
+
+This project includes comprehensive GitHub Copilot Code Review instructions located at `.github/copilot-instructions.md`. These instructions provide detailed guidance for:
+
+- Code organization and architecture decisions
+- Security and performance best practices
+- Rails-specific patterns and conventions
+- Proper separation of concerns across Rails layers
+- Decision-making framework for choosing the right architectural components
+
 ## Test Account
 
 - Email: test@example.com

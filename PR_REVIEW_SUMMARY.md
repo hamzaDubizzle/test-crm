@@ -123,6 +123,8 @@ The test CRM application is a Ruby on Rails application with the following compo
 
 ## Expected AI PR Review Suggestions
 
+For comprehensive guidance on what AI PR review systems should identify and suggest, see `.github/copilot-instructions.md`.
+
 ### Immediate Fixes
 1. **Add proper authorization** with CanCanCan
 2. **Move business logic to services**
