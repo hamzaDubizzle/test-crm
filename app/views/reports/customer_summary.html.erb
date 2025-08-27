@@ -1,0 +1,63 @@
+<!-- Bad practice: No proper styling -->
+<!-- Bad practice: No proper structure -->
+<!-- Bad practice: Business logic in view -->
+
+<h1>Customer Summary Report</h1>
+
+<!-- Bad practice: No proper error handling -->
+<!-- Bad practice: No proper data validation -->
+<% if @customers.any? %>
+  <div>
+    <h2>Summary Statistics</h2>
+    <p>Total Customers: <%= @customer_count %></p>
+    <p>Total Value: $<%= @total_value %></p>
+    <p>Average Value: $<%= @average_value %></p>
+  </div>
+
+  <div>
+    <h2>Valuable Customers (>$10,000)</h2>
+    <!-- Bad practice: Business logic in view -->
+    <% @valuable_customers.each do |customer| %>
+      <div>
+        <h3><%= customer.name %></h3>
+        <p>Email: <%= customer.email %></p>
+        <p>Company: <%= customer.company %></p>
+        <!-- Bad practice: N+1 queries in view -->
+        <p>Total Deals: <%= customer.deals.count %></p>
+        <p>Total Value: $<%= customer.deals.sum(:amount) %></p>
+        <!-- Bad practice: Business logic in view -->
+        <p>Status: <%= customer.status %></p>
+      </div>
+    <% end %>
+  </div>
+
+  <div>
+    <h2>All Customers</h2>
+    <!-- Bad practice: No proper table structure -->
+    <!-- Bad practice: No proper styling -->
+    <% @customers.each do |customer| %>
+      <div>
+        <h3><%= customer.name %></h3>
+        <p>Email: <%= customer.email %></p>
+        <p>Phone: <%= customer.phone %></p>
+        <p>Company: <%= customer.company %></p>
+        <!-- Bad practice: Multiple database queries in view -->
+        <p>Deals: <%= customer.deals.count %></p>
+        <p>Total Value: $<%= customer.deals.sum(:amount) %></p>
+        <p>Tasks: <%= customer.tasks.count %></p>
+        <p>Completed Tasks: <%= customer.tasks.where(status: 'completed').count %></p>
+        <!-- Bad practice: Business logic in view -->
+        <p>Performance Score: <%= calculate_customer_score(customer) %></p>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p>No customers found.</p>
+<% end %>
+
+<!-- Bad practice: No proper navigation -->
+<!-- Bad practice: No proper styling -->
+<div>
+  <%= link_to 'Back to Reports', reports_path %>
+  <%= link_to 'Generate Full Report', generate_full_report_reports_path %>
+</div>

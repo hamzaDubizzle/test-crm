@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :customers
   resources :deals
   resources :tasks
+  resources :reports
   
   # Bad practice: no proper root route
   root 'customers#index'
